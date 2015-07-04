@@ -14,6 +14,14 @@ public class MenuController : MonoBehaviour {
     private int handMeshIndex = 0;
 
     public SkinnedMeshRenderer[] bodyMeshArray;
+
+    public Color[] colorArray;
+    private int colorIndex = 0;
+    void Start()
+   {
+       colorArray = new Color[] { Color.blue, Color.green, purple, Color.cyan, Color.red };
+       DontDestroyOnLoad(this.gameObject);
+    }
     public void OnHeadMeshNext()
     {
         headMeshIndex++;
@@ -29,22 +37,27 @@ public class MenuController : MonoBehaviour {
     }
     public void OnColorBlue()
     {
+        colorIndex = 0;
         OnChangeColor(Color.blue);
     }
     public void OnColorGreen()
     {
+        colorIndex = 1;
         OnChangeColor(Color.green);
     }
     public void OnColorPurple()
     {
+        colorIndex = 2;
         OnChangeColor(purple);
     }
-    public void OnColorCylan()
+    public void OnColorCyan()
     {
+        colorIndex = 3;
         OnChangeColor(Color.cyan);
     }
     public void OnColorRed()
     {
+        colorIndex = 4;
         OnChangeColor(Color.red);
     }
     void OnChangeColor(Color c)
@@ -54,8 +67,15 @@ public class MenuController : MonoBehaviour {
             render.material.color = c;
         }
     }
+
+    void Save()
+    {
+        PlayerPrefs.SetInt("headindex", headMeshIndex);
+        PlayerPrefs.SetInt("handindex", handMeshIndex);
+        PlayerPrefs.SetInt("colorindex", colorIndex);
+    }
     public void OnPlay()
     {
-
+        Save();
     }
 }
