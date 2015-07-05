@@ -211,7 +211,7 @@ ModelImporter:
   copyAvatar: 0
   humanDescription:
     human:
-    - boneName: b_Hips
+    - boneName: b_Bip
       humanName: Hips
       limit:
         min: {x: 0, y: 0, z: 0}

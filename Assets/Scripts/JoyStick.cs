@@ -26,7 +26,7 @@ public class JoyStick : MonoBehaviour {
 	void Update () {
 	    if(isPress)
         {
-       
+       //左下角是原点  此处求btn的原点相对于父节点的
             Vector2 targetPos = UICamera.lastTouchPosition - new Vector2(91, 91);
 
             float distance = Vector2.Distance(Vector2.zero, targetPos);
